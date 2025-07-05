@@ -18,8 +18,9 @@ API_route.get("/searchNearBy", async (req, res) => {
 
 API_route.get("/searchBar", async (req, res) => {
     try {
-        const { textQu, open, rating, maxcount } = req.query;
-        const data = await getSearchBarText(textQu, open, rating, maxcount);
+        const { text } = req.query;
+        const data = await getSearchBarText(text);
+        // const data =text;
         res.status(200).json({ data: data, status: true });
     } catch (error) {
         res.status(500).json({ message: "Failed to fetch nearby places", status: false });
@@ -28,7 +29,9 @@ API_route.get("/searchBar", async (req, res) => {
 
 API_route.get("/placeDetails", async (req, res) => {
     try {
-        const data = await GetPlaceDetails("ChIJRUgEYCh9Xw0Rt1j_s9icecs");
+        const { placeid } = req.query;
+        const data = await GetPlaceDetails(placeid);
+        console.log(data);
         return res.status(200).json({ data: data, status: true });
     } catch (error) {
         res.status(500).json({ message: "Failed to fetch nearby places", status: false });
