@@ -9,7 +9,7 @@ import { authMiddleWare } from "../middleware/ProtectedRoute.js";
 const port = process.env.PORT;
 const app = express();
 app.use(cors({
-  origin: ["http://localhost:3000", "https://find-your-place-frontend-c9qh-l0u20mu2f.vercel.app"],
+  origin: ["http://localhost:3000", "https://find-your-place-frontend-c9qh.vercel.app"],
   credentials: true
 }));
 app.use(cookieParser())
