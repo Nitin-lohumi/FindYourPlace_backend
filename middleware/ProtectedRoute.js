@@ -6,6 +6,7 @@ export const authMiddleWare = async (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: No token provided", Authenticate: false });
   }
+  console.log(token);
   try {
     const decoded = jwt.verify(token, process.env.NEXTAUTH_SECRET);
     const { id, email, name, image } = decoded;
