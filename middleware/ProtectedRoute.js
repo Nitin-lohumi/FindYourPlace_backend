@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 export const authMiddleWare = async (req, res, next) => {
   const token = req.cookies?.google_id_token;
+  console.log("Request cookies: ", req.cookies);
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: No token provided", Authenticate: false });
   }
