@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(authMiddleWare);
 app.get("/protected", (req, res) => {
-  res.json({ message: "This is protected", user: req.user });
+  res.json({ message: "yesspppppp ", user: req.user });
 });
 app.use("/api", API_route);
 app.use("/save", SaveRoute);
