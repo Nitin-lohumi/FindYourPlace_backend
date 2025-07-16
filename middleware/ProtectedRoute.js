@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 export const authMiddleWare = async (req, res, next) => {
   const token = req.headers.authorization.split(" ")[1];
+  console.log(token);
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: No token provided", Authenticate: false });
   }
@@ -18,6 +19,7 @@ export const authMiddleWare = async (req, res, next) => {
       });
     }
     req.user = { id, email, name, image };
+    console.log(req.user);
     next();
   } catch (error) {
     console.error("JWT verify error:", error);
