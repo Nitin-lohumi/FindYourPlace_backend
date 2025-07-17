@@ -15,9 +15,9 @@ app.use(cors({
 app.use(cookieParser());
 app.use(express.json());
 app.use(authMiddleWare);
-app.get("/protected", (req, res) => {
-  res.json({ message: "yesspppppp ", user: req.user });
-});
+// app.get("/protected", (req, res) => {
+//   res.json({ message: "yesspppppp ", user: req.user });
+// });
 app.use("/api", API_route);
 app.use("/save", SaveRoute);
 app.use("/get", getDataRoute);

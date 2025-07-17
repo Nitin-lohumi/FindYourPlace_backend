@@ -33,7 +33,7 @@ async function SearchNearBy(lat, lon, radius = 10000, type = "tourist_attraction
                     const { placeId, photoName } = extractPlaceIdAndPhotoName(place.photos[0].name);
                     const photo = await FetchPhoto(placeId, photoName, process.env.RAPID_API_FOR_placePhoto1);
                     formatted.originalPhoto = photo?.photoUri || null;
-                    await wait(1000);
+                    await wait(1500);
                 } else {
                     formatted.originalPhoto = null;
                 }

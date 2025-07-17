@@ -18,7 +18,6 @@ export const authMiddleWare = async (req, res, next) => {
       });
     }
     req.user = { id, email, name, image };
-    console.log(req.user);
     next();
   } catch (error) {
     console.error("JWT verify error:", error);
